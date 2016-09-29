@@ -17,7 +17,8 @@ plot "result_clock_gettime.csv" using 1:2 with lines title 'baseline', \
 '' using 1:4 with lines title 'omp_2', \
 '' using 1:6 with lines title 'omp_4', \
 '' using 1:8 with lines title 'avx', \
-'' using 1:10 with lines title 'avxunroll'
+'' using 1:10 with lines title 'avxunroll',\
+'' using 1:12 with lines title 'leibniz'
 
 
 set xlabel 'N'
@@ -35,3 +36,4 @@ plot "result_clock_gettime.csv" using 1:3 title 'baseline' with lines lt rgb 'bl
 '' using 1:7 title 'openmp_4' with lines lt rgb 'orange', \
 '' using 1:9 title 'avx' with lines lt rgb 'green', \
 '' using 1:11 title 'avxunroll' with lines lt rgb 'purple', \
+'' using 1:13 title 'leibniz' with lines 

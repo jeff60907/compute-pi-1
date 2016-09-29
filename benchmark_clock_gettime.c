@@ -79,7 +79,21 @@ int main(int argc, char const *argv[])
         (end.tv_nsec - start.tv_nsec)/ONE_SEC;
     } 
     printf("%lf,",compute_ci(compute_time));
-    printf("%.16lf\n", compute_error(compute_pi_avx_unroll(N)));
+    printf("%.16lf,", compute_error(compute_pi_avx_unroll(N)));
+    
+    // leibniz baseline
+    for(i = 0; i < loop; i++) {
+        clock_gettime(CLOCK_ID, &start);
+        compute_pi_leibniz(N);
+        clock_gettime(CLOCK_ID, &end);
+        compute_time[i] = (double) (end.tv_sec - start.tv_sec) +
+        (end.tv_nsec - start.tv_nsec)/ONE_SEC;
+    }
+    printf("%lf,",compute_ci(compute_time));
+    printf("%.16lf\n", compute_error(compute_pi_leibniz(N)));
+
+
+
     return 0;
 }
 
